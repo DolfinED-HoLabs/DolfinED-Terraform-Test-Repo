@@ -1,0 +1,9 @@
+credentials.txt
+rds_pass.txt
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+Provider Authentication.tf.bk
+terraform.tfvars

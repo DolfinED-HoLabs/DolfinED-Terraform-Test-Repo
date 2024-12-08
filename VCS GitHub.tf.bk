@@ -1,0 +1,97 @@
+git config --global user.email "e.abousherif@gmail.com"                             
+
+ git config --global user.name "DolfinED-HoLabs"
+
+ # verify using to ensure you setting are done correctly
+
+git config -l
+
+# credential.helper=osxkeychain
+# init.defaultbranch=main
+# user.email=e.abousherif@gmail.com
+# user.name=DolfinED-HoLabs
+
+
+## If you need to create a Private GitHub repository, you will need to create an RSA key required for SSH to the GitHub repo
+
+ssh-keygen -t rsa -b 2048 -C "DolfinED-HoLabs" 
+
+# Leave the key in the default RSA path under the 
+# /Users/dolfined/.ssh/id_rsa
+
+## cat the id_rsa.pub (the public key) and copy the key under GitHub, account ->  settings ->  SSH and GPG keys ->  add new SSH key 
+
+## check that you can authenticate successfully
+
+ssh -T git@github.com
+
+
+## clone the repo to your laptop
+git clone git@github.com:DolfinED-HoLabs/DolfinED-Terraform.git
+
+OR 
+
+git clone https://github.com/DolfinED-HoLabs/DolfinED-Terraform-1.git
+
+
+# Once this is done, move into the DolfinED-Terraform-1 cloned directory and copy your Terraform config file
+
+# Check that your .tf file in untracked using
+
+git status
+
+git status
+
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#         rds.tf
+# nothing added to commit but untracked files present (use "git add" to track)
+
+# then add it to your tracking area 
+# if you will use .gitignore, this needs to be done before git add
+git add rds.tf
+
+# If by mistake a file was tracked and you want it to be untracked because you added it to .gitignore, then you can use the commands
+
+# git rm -r --cache <filename>
+# then
+# git add . 
+
+
+# then do a git status again to confirm it was added
+
+git status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   rds.tf
+
+# then do a git commit
+
+git commit -m "comment of your choice"
+
+# [main 0cd9dc6] testing upload to github
+#  1 file changed, 12 insertions(+)
+#  create mode 100644 rds.tf
+
+
+# now push the changes  to GitHub
+
+git push
+
+# Enumerating objects: 4, done.
+# Counting objects: 100% (4/4), done.
+# Delta compression using up to 16 threads
+# Compressing objects: 100% (3/3), done.
+# Writing objects: 100% (3/3), 507 bytes | 507.00 KiB/s, done.
+# Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+# To https://github.com/DolfinED-HoLabs/DolfinED-Terraform-1.git
+#    9d5dc16..0cd9dc6  main -> main
+
+
+## you need to do 
