@@ -5,7 +5,7 @@
 ## https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 
 
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "default1" {
   allocated_storage    = 10
   db_name              = "mydb"
   engine               = "mysql"
